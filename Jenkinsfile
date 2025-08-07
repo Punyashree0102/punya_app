@@ -12,13 +12,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                    echo "Checking for running Spring Boot application..."
-                    if pgrep -f target/spring_app_sak-0.0.1-SNAPSHOT.jar > /dev/null; then
-                        echo "Stopping existing Spring Boot application..."
-                        sudo pkill -f target/spring_app_sak-0.0.1-SNAPSHOT.jar
-                    else
-                        echo "No existing Spring Boot application running."
-                    fi
+                    echo "Stopping existing Spring Boot application..."
+                    sudo pkill -f target/spring_app_sak-0.0.1-SNAPSHOT.jar
 
                     echo "Starting the Spring application..."
                     sudo java -jar target/spring_app_sak-0.0.1-SNAPSHOT.jar > /dev/null 2>&1 &
