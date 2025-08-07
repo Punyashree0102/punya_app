@@ -13,7 +13,7 @@ pipeline {
             steps {
                 sh '''
                     echo "Stopping existing Spring Boot application..."
-                    sudo pkill -f target/spring_app_sak-0.0.1-SNAPSHOT.jar
+                    sudo pkill -f spring_app_sak-0.0.1-SNAPSHOT.jar
 
                     echo "Starting the Spring application..."
                     sudo java -jar target/spring_app_sak-0.0.1-SNAPSHOT.jar > /dev/null 2>&1 &
